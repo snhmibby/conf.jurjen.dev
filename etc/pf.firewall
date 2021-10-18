@@ -1,0 +1,14 @@
+serves="{ ssh www https }"
+icmp="{ echorep echoreq unreach }"
+#icmp6="{ 1 2 3 128 129 }" #unreach, too big, time exceeded, echo request/reply
+
+scrub in all
+set skip on lo0
+
+block log all
+
+pass inet proto icmp icmp-type $icmp
+pass inet6 proto ipv6-icmp
+
+pass in proto tcp to port $serves
+pass out all keep state
