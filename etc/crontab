@@ -26,4 +26,4 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
 52	0	*	*	2	root	/usr/local/www/dokuwiki/backup_wiki.sh
 
 # Renew certificates
-*	*	1	*	*	root	certbot renew --quiet --post-hook "service lighttpd restart"
+11	1	1	*	*	root	certbot renew --quiet --post-hook "service lighttpd restart"
